@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>   
+<extension point = "org.eclipse.debug.core.launchConfigurationTypes">
+   <launchConfigurationType
+   	   id="com.github.akalash.compositeLaunchConf.type"
+	   name="Composite"
+	   delegate="com.github.akalash.compositeLaunchConf.CompositeLaunchConfigurationDelegate"
+	   modes= "run, debug, profile">
+   </launchConfigurationType>
+</extension>
+<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+    <launchConfigurationTypeImage
+        icon="icons/sample.gif"
+        configTypeID="com.github.akalash.compositeLaunchConf.type"
+        id="com.github.akalash.compositeLaunchConf.typeImage">
+    </launchConfigurationTypeImage>
+</extension>
+<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+    <launchConfigurationTabGroup
+        type="com.github.akalash.compositeLaunchConf.type"
+        class="com.github.akalash.compositeLaunchConf.ui.CompositeLaunchConfigurationTabGroup"
+        id="com.github.akalash.compositeLaunchConf.tabGroup">
+    </launchConfigurationTabGroup>
+</extension>
+</plugin>
