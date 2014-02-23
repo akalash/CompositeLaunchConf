@@ -5,6 +5,8 @@ import org.eclipse.debug.ui.CommonTab;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
+import com.github.akalash.compositeLaunchConf.ui.tab.CompositeTab;
+
 
 public class CompositeLaunchConfigurationTabGroup extends AbstractLaunchConfigurationTabGroup{
 	@Override
