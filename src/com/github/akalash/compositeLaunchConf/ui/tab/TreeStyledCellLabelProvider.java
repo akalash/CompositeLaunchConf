@@ -10,7 +10,10 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.widgets.TreeItem;
 
 import com.github.akalash.compositeLaunchConf.api.ITableViewerInput;
-
+/**
+ * 
+ * @author anton
+ */
 class TreeStyledCellLabelProvider extends StyledCellLabelProvider {
 	private ITableViewerInput table;
 	
@@ -30,7 +33,7 @@ class TreeStyledCellLabelProvider extends StyledCellLabelProvider {
 			ILaunchConfigurationType confType = (ILaunchConfigurationType) element;
 			text.append(confType.getName());
 			cell.setImage(DebugUITools.getImage(confType.getIdentifier()));
-		} else {
+		} else if (element instanceof ILaunchConfiguration){
 			ILaunchConfiguration conf = (ILaunchConfiguration) element;
 			text.append(conf.getName());
 			ti.setChecked(table.getViewerInput().containsKey(conf.getName()));

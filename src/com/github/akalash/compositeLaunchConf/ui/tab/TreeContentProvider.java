@@ -1,5 +1,8 @@
 package com.github.akalash.compositeLaunchConf.ui.tab;
-
+/**
+ * 
+ * @author anton
+ */
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
@@ -25,11 +28,7 @@ class TreeContentProvider implements ITreeContentProvider {
 	}
 
 	@Override
-	public Object[] getElements(Object inputElement) {
-		/*
-		 * if (inputElement instanceof ILaunchConfigurationType[]) { return
-		 * (ILaunchConfigurationType[]) inputElement; }
-		 */
+	public Object[] getElements(Object inputElement) {		
 		return (Object[]) inputElement;
 	}
 

@@ -38,7 +38,10 @@ import org.eclipse.ui.PlatformUI;
 import com.github.akalash.compositeLaunchConf.api.ICompositeLaunchConfigurationConstants;
 import com.github.akalash.compositeLaunchConf.api.ILaunchManagerProvider;
 import com.github.akalash.compositeLaunchConf.api.ITableViewerInput;
-
+/**
+ * Special tap for composite launch configuration
+ * @author anton
+ */
 public class CompositeTab extends AbstractLaunchConfigurationTab implements
 		ILaunchManagerProvider, ITableViewerInput {
 
@@ -63,11 +66,8 @@ public class CompositeTab extends AbstractLaunchConfigurationTab implements
 			Object source = e.getSource();
 			if (source == fTableViewer.getTable() || source == fTableViewer) {
 				setParametersButtonsEnableState();
-			} else if (source == fTreeViewer.getTree() || source == fTreeViewer) {
-				try {
-					handleParametersTreeState(e);
-				} catch (CoreException e1) {
-				}
+			} else if (source == fTreeViewer.getTree() || source == fTreeViewer) {				
+				handleParametersTreeState(e);				
 			} else if (source == fUpButton) {
 				handleParametersUpSelected();
 			} else if (source == fDownButton) {
@@ -161,6 +161,7 @@ public class CompositeTab extends AbstractLaunchConfigurationTab implements
 		Map<String, ILaunchConfiguration> params = getViewerInput();
 		Map<String, ILaunchConfiguration> head = new LinkedHashMap<>();
 		String prev = null;
+		//lift up the selected item
 		for (Entry<String, ILaunchConfiguration> e : params.entrySet()) {
 			if (key.equals(e.getKey()) && prev != null) {
 				head.remove(prev);
@@ -186,6 +187,7 @@ public class CompositeTab extends AbstractLaunchConfigurationTab implements
 		boolean find = false;
 		Map<String, ILaunchConfiguration> tail = new LinkedHashMap<>();
 		Map<String, ILaunchConfiguration> head = new LinkedHashMap<>();
+		//lift down the selected item
 		for (Entry<String, ILaunchConfiguration> e : params.entrySet()) {
 			if (key.equals(e.getKey()) || find) {
 				tail.put(e.getKey(), e.getValue());
@@ -216,8 +218,7 @@ public class CompositeTab extends AbstractLaunchConfigurationTab implements
 		updateLaunchConfigurationDialog();
 	}
 
-	private void handleParametersTreeState(SelectionEvent event)
-			throws CoreException {
+	private void handleParametersTreeState(SelectionEvent event){
 		if (event.detail == SWT.CHECK) {
 			if (event.item.getData() instanceof ILaunchConfiguration) {
 				boolean check = ((Tree) event.widget).getSelection()[0]
@@ -253,9 +254,7 @@ public class CompositeTab extends AbstractLaunchConfigurationTab implements
 		return (Map<String, ILaunchConfiguration>) fTableViewer.getInput();
 	}
 
-	/**
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(ILaunchConfigurationWorkingCopy)
-	 */
+	
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 
 		List<String> l = new ArrayList<>();
@@ -269,15 +268,11 @@ public class CompositeTab extends AbstractLaunchConfigurationTab implements
 				ICompositeLaunchConfigurationConstants.ATTR_LIST_LAUNCHES, l);
 	}
 
-	/**
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(ILaunchConfigurationWorkingCopy)
-	 */
+	
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 	}
 
-	/**
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(ILaunchConfiguration)
-	 */
+	
 	@Override
 	public void initializeFrom(ILaunchConfiguration config) {
 

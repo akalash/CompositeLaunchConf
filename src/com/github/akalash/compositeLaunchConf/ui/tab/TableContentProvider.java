@@ -5,6 +5,11 @@ import java.util.Map;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
+
+/**
+ * 
+ * @author anton
+ */
 class TableContentProvider implements IStructuredContentProvider {
 	public Object[] getElements(Object inputElement) {
 		return ((Map<?, ?>) inputElement).keySet().toArray();

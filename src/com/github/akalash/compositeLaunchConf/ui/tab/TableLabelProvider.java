@@ -6,7 +6,10 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import com.github.akalash.compositeLaunchConf.api.ITableViewerInput;
-
+/**
+ * 
+ * @author anton
+ */
 class TableLabelProvider implements ITableLabelProvider {
 	
 	private ITableViewerInput table;

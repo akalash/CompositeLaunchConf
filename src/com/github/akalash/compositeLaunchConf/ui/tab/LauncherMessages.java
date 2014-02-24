@@ -1,7 +1,10 @@
 package com.github.akalash.compositeLaunchConf.ui.tab;
 
 import org.eclipse.osgi.util.NLS;
-
+/**
+ * Internalization class
+ * @author anton
+ */
 class LauncherMessages extends NLS {
 	private static final String BUNDLE_NAME = "com.github.akalash.compositeLaunchConf.ui.tab.messages"; //$NON-NLS-1$
 

@@ -7,7 +7,10 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
 import com.github.akalash.compositeLaunchConf.ui.tab.CompositeTab;
 
-
+/**
+ * Special tap group for composite launch configuration
+ * @author anton
+ */
 public class CompositeLaunchConfigurationTabGroup extends AbstractLaunchConfigurationTabGroup{
 	@Override
 	public void createTabs(ILaunchConfigurationDialog arg0, String arg1) {
